@@ -39,14 +39,15 @@ var comb = function() {
 
   // 
   pub.list_combinations = function() {
-    while( next() ) console.log(pub.set)
+    console.log(pub.set.toString())
+    while( next() ) console.log(pub.set.toString())
   }
 
   
   // move elements
   var next = function() {
-    var i 
-    if( i = pub.who_moves() ) {
+    var i = pub.who_moves()
+    if( i !== false ) {
       move( i )
       return true
     }
@@ -103,7 +104,7 @@ var comb = function() {
     // count number of trues to the right
     // and clear all trues
     var count = 0
-    for( var j=i+1; j<n; j++ ) {
+    for( var j=i+1; j<pub.n; j++ ) {
       if( pub.set[j] ) { 
         count ++
         pub.set[j] = false
@@ -118,6 +119,20 @@ var comb = function() {
     }    
     
   }
+
+
+
+  pub.set.toString = function() {
+    var string = '[ '
+    for(var i=0; i<pub.set.length; i++ ) {
+      if(pub.set[i]) string += 'o '
+        else string += 'x '
+      
+    }
+    string += ']'
+    return string
+  }
+
 
   
   init()
