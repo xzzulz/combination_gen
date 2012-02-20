@@ -25,7 +25,8 @@
 // The combinations can be listed for examination, or can 
 // be iterated over.
 //
-// The total number of possible combination is given by:
+// The total number of possible combination for n and k, 
+// is given by:
 //
 //     / n \  =      n!            for k <= n
 //     \ k /      k! (n-k)! 
@@ -36,6 +37,7 @@
 //
 // 
 //
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 
@@ -134,15 +136,69 @@
 //
 //       combination_gen.k = 2
 //
-//   Get the
+//   Build the set
+//
+//       combination_gen.build()
+//
+//   This will create the set, and set it to an initial value.
 //
 //
-//   Use this method to reset the combination to the initial position
 //
+//   Get the current combination as an array of items:
+//
+//       combination_gen.get_combination()
+//
+//   Will return an array: 
+//
+//       [ 'blue', 'orange', 'purple' ]
+//
+//
+//
+//   Get the current combination as an array of booleans:
+//
+//        combination_gen.set
+//
+//   will return:
+//
+//       [ true, true, false ]
+//
+//   where each value correspond to an item, and is true
+//   if the item is included in the current combination,
+//   or false if it is not.
+//
+//
+//   Iterate to the next combination
+//
+//       combination_gen.next()
+//
+//   Will return true, if the iteration was successful,
+//   or false if the current iteration is the last.
+//
+//
+//   Return to the first combination with:
+//
+//       combination_gen.build()
+//
+//   Will recreate the set, and set it to the initial position,
+//   Ready for iteration.
+//
+//
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 
 
+
+
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//
+// combination_gen.js
+// 
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//
+// Javascript module to work with combinations.
+// Generate (n/k) combinations, iterate and work with them.
+//
 var combination_gen = function() {
   
   var pub = {}
@@ -193,9 +249,9 @@ var combination_gen = function() {
   // distinct elements, from the set of n elements.
   pub.draw_matrix = function() {
     
-    pub.reset()
+    pub.build()
     
-    console.log(''
+    console.log('\n'
     + '::  combinations matrix  :: \n'
     + 'In this matrix each row is a possible combination.\n'
     + 'Each column is an element of the set of n elements.\n'
@@ -218,10 +274,10 @@ var combination_gen = function() {
     
     
     var i = 1
-    console.log( pub.set.toString() + '  ' + i )
-    while( next() ) {
+    console.log( format_matrix( pub.set ) + '  ' + i )
+    while( pub.next() ) {
       i++
-      console.log( pub.set.toString() + '  ' + i )
+      console.log( format_matrix( pub.set.toString() ) + '  ' + i )
     }
   }
 
@@ -246,11 +302,17 @@ var combination_gen = function() {
 
   pub.list = function() {
     
-    pub.reset()
+    pub.build()
+
+    console.log('\n'
+    + '::  combinations list  :: \n'
+    + 'List all possible combinations\n'
+    + 'For the values of k and n.\n'   
+    )
     
     var i = 1
     console.log( format_list( pub.get_combination() ) + '  ' + i )
-    while( next() ) {
+    while( pub.next() ) {
       i++
       console.log( format_list( pub.get_combination() ) + '  ' + i )
     }
@@ -267,7 +329,7 @@ var combination_gen = function() {
   // recreates the set, and set it to initial position.
   // the initial position according to the
   // iteration algorithm used in this class.
-  pub.reset = function() {
+  pub.build = function() {
     
     if( pub.k>pub.n ) {
       console.log('invalid. pub.k>pub.n')
@@ -275,7 +337,6 @@ var combination_gen = function() {
     }
     
     pub.set = []
-    pub.set.toString = toString
     
     // array of k elements with 0s
     for(var i=0; i<pub.n; i++)
@@ -305,7 +366,7 @@ var combination_gen = function() {
   // possible combination according to
   // a simple algorithm, that allows
   // to iterate through all the combinations
-  var next = function() {
+  pub.next = function() {
     var i = who_moves()
     if( i !== false ) {
       move( i )
@@ -401,8 +462,8 @@ var combination_gen = function() {
   
   
 
-  // toString, used by the -draw_matrix()- method
-  var toString = function() {
+  // used by the -draw_matrix()- method
+  var format_matrix = function() {
     var string = '[ '
     for(var i=0; i<pub.set.length; i++ ) {
       if(pub.set[i]) string += 'o '
@@ -432,4 +493,20 @@ combination_gen.add( 'purple' )
 
 combination_gen.k = 3
 
+
+
+combination_gen.build()
+
+console.log( combination_gen.set )
+console.log( combination_gen.get_combination() )
+
+combination_gen.next()
+
+console.log( combination_gen.set )
+console.log( combination_gen.get_combination() )
+
+combination_gen.build()
+
 combination_gen.list()
+
+combination_gen.draw_matrix()
