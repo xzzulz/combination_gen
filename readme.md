@@ -1,21 +1,21 @@
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # combination_gen.js
  
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
  Javascript module to work with combinations.
  Generate (n/k) combinations, iterate and work with them.
 
  
 
-## tags
+#### tags
 
  combinations, javascript, basic combinatorics, set,
  k-combinations,
 
 
- 
+## Description
 
  this module can generate all the possible
  combinations of a subset of number k distinct
@@ -51,13 +51,13 @@
  There are two ways to use this component:
 
 
-### :: Basic
+### Basic
 
    To explore combinations (n/k)
    Specify values for n and k, and explore the combinations.
 
 
-### :: With items
+### With items
 
    To operate over combinations of items.
    Specify the items in the set, and the size k of the subsets.
@@ -66,9 +66,9 @@
 
 
  
+## Usage description
 
-
-### :: 1 Basic
+### Basic
 
 
    Specify values for n and k
@@ -89,7 +89,7 @@
  
 
 
-### :: 2 With items
+### With items
 
 
    Add items to the set
@@ -124,7 +124,7 @@
  
 
 
-### :: Work with the combinations
+### Work with the combinations
 
 
    Other than displaying the combinations for exploring,
