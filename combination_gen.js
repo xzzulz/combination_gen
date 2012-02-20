@@ -1,5 +1,22 @@
-// combination_gen
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//
+// combination_gen.js
 // 
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//
+// Javascript module to work with combinations.
+// Generate (n/k) combinations, iterate and work with them.
+//
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//
+// tags
+//
+// combinations, javascript, basic combinatorics, set,
+// k-combinations,
+//
+//
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//
 // this module can generate all the possible
 // combinations of a subset of number k distinct
 // elements, from a set of n elements, where the order
@@ -19,6 +36,9 @@
 //
 // 
 //
+
+
+
 
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //
@@ -62,7 +82,6 @@
 //   them, well formated, to console.log
 //
 //
-
 //
 //
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -105,9 +124,17 @@
 //   This module also allow to iterate and work over the 
 //   combinations.
 //
+//   Add items to the set
 //
+//       combination_gen.add( 'blue' )
+//       combination_gen.add( 'orange' )
+//       combination_gen.add( 'purple' )
 //
+//   Specify a value for k
 //
+//       combination_gen.k = 2
+//
+//   Get the
 //
 //
 //   Use this method to reset the combination to the initial position
@@ -232,17 +259,7 @@ var combination_gen = function() {
 
 
 
-  var format_list = function( list ) {
-    var res = '[ '
-    for( var i=0; i<list.length; i++ ) { 
-      var item = list[i].toString().substring( 0, 9 )
-      item = item + '          '.substring( 0, 10-item.length )
-      res += item
-    }
-    res += ']'
-    
-    return res
-  }
+
 
 
 
@@ -369,7 +386,22 @@ var combination_gen = function() {
 
 
 
+  // format the output, used by the -list()- method
+  var format_list = function( list ) {
+    var res = '[ '
+    for( var i=0; i<list.length; i++ ) { 
+      var item = list[i].toString().substring( 0, 9 )
+      item = item + '          '.substring( 0, 10-item.length )
+      res += item
+    }
+    res += ']'
+    
+    return res
+  }
+  
+  
 
+  // toString, used by the -draw_matrix()- method
   var toString = function() {
     var string = '[ '
     for(var i=0; i<pub.set.length; i++ ) {
@@ -380,13 +412,6 @@ var combination_gen = function() {
     string += ']'
     return string
   }
-
-
-  
-  
-  
-  
-
 
   
   
