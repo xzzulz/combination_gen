@@ -6,241 +6,45 @@
 //
 // Javascript module to work with combinations.
 // Generate (n/k) combinations, iterate and work with them.
-//
-// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
-// tags
-//
-// combinations, javascript, basic combinatorics, set,
-// k-combinations,
-//
-//
-// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
-// this module can generate all the possible
-// combinations of a subset of number k distinct
-// elements, from a set of n elements, where the order
-// does not matter.
 // 
-// The combinations can be listed for examination, or can 
-// be iterated over.
-//
-// The total number of possible combination for n and k, 
-// is given by:
-//
-//     / n \  =      n!            for k <= n
-//     \ k /      k! (n-k)! 
-//
-//
-// http://en.wikipedia.org/wiki/Combination
-//
-//
-// 
+// MIT License (MIT)
+// Copyright (c) 2011 daniel salvati
 //
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-
-// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
-//
-// Usage
-//
-//
-// There are two ways to use this component:
-//
-//
-//   :: The basic way
-//
-//   To explore combinations (n/k)
-//   Specify values for n and k, and explore the combinations
-//
-//
-//   :: With items
-//
-//   To operate over combinations of items.
-//   Specify the items in the set, and the size k of the subsets.
-//   Operate over the combiantions.
-//
-//
-//
-// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
-//
-//   :: 1 The basic way
-//
-//
-//   Specify values for n and k
-//
-//       combination_gen.n = 6
-//       combination_gen.k = 4
-//
-//   Draw to console a matrix of the combinations ( to console.log() )
-//
-//       combination_gen.draw_matrix()
-//
-//   This method will iterate for all the combinations, and output
-//   them, well formated, to console.log
-//
-//
-//
-//
-// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
-//
-//   :: 2 With items
-//
-//
-//   Add items to the set
-//
-//       combination_gen.add( 'blue' )
-//       combination_gen.add( 'orange' )
-//       combination_gen.add( 'purple' )
-//
-//   Each item added will adjust the value of n appropiately.
-//
-//
-//   Specify a value for k
-//
-//       combination_gen.k = 4
-//
-//
-//   List all the combinations ( to console.log() )
-//
-//       combination_gen.list()
-//
-//   This method will iterate for all the combinations, and output
-//   them, well formated, to console.log.
-//   toString() will be called on each item.
-//   
-//
-//   Draw to console a matrix of the combinations ( to console.log() )
-//
-//       combination_gen.draw_matrix()
-//
-//
-//
-// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
-//
-//   :: Work with the combinations
-//
-//
-//   Other than displaying the combinations for exploring,
-//   This module also allow to iterate and work over the 
-//   combinations.
-//
-//   Add items to the set
-//
-//       combination_gen.add( 'blue' )
-//       combination_gen.add( 'orange' )
-//       combination_gen.add( 'purple' )
-//
-//   Specify a value for k
-//
-//       combination_gen.k = 2
-//
-//   Build the set
-//
-//       combination_gen.build()
-//
-//   This will create the set, and set it to an initial value.
-//   This method should be called after changing n,k or adding 
-//   items. 
-//   Methods draw_matrix and list call it before strating to 
-//   iterate.
-//   
-//
-//
-//   Get the current combination as an array of items:
-//
-//       combination_gen.get_combination()
-//
-//   Will return an array: 
-//
-//       [ 'blue', 'orange', 'purple' ]
-//
-//
-//
-//   Get the current combination as an array of booleans:
-//
-//        combination_gen.set
-//
-//   will return:
-//
-//       [ true, true, false ]
-//
-//   where each value correspond to an item, and is true
-//   if the item is included in the current combination,
-//   or false if it is not.
-//
-//
-//   Iterate to the next combination
-//
-//       combination_gen.next()
-//
-//   Will return true, if the iteration was successful,
-//   or false if the current iteration is the last. So it can
-//   be easily used in loops.
-//
-//
-//   Return to the first combination with:
-//
-//       combination_gen.build()
-//
-//   Will recreate the set, and set it to the initial position,
-//   Ready for iteration.
-//
-//
-// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-
-
-
-// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
-// combination_gen.js
-// 
-// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
-// Javascript module to work with combinations.
-// Generate (n/k) combinations, iterate and work with them.
-//
 var combination_gen = function() {
   
+  // public namespace
   var pub = {}
   
 
-
-  // set of k elements from n
-  // implemented as an array of booleans.
-  // In the comments, often the set will
-  // be represented as an array of o and -.
-  // The os represent a true, and the -s represent
-  // a false.
+  // Set data, with the Current combination.
+  // Array of n elements, with k values true
+  // and the rest false.
+  //
   // example:
-  // a set of 3 elements from 6,
-  // where the first 3 are set and the last 3 are not,
-  // would be [ true, true, true, false, false, false ]
-  // will be represented as follow:
-  // [ o o o - - - ]
+  //
+  // a set of k=3 elements from n=6,
+  // would be 
+  //     [ true, true, true, false, false, false ]
+  //
+  // For disscussions here, represented as:
+  //     [ o o o - - - ]
   //
   pub.set = []
  
  
-  // number of elements
-  // n is the number total of elements to choose from
+  // number of elements to choose from.
+  // n is the number total of elements to choose from.
   pub. n = 0
 
-  // number of elements from n that
-  // each combination will have
+  // number of elements that
+  // each combination will have.
   pub. k = 0
   
 
   pub.items = []
+
+
 
 
   // adds an item to the set of n items
@@ -249,11 +53,9 @@ var combination_gen = function() {
     pub.n = pub.items.length
   }
 
-
-
   
 
-  // draws a matrix represetations of all 
+  // draws to console.log a matrix represetations of all 
   // the k-combinations.
   // all the combinations that can be made with k 
   // distinct elements, from the set of n elements.
@@ -309,7 +111,8 @@ var combination_gen = function() {
   }
  
  
-
+  // writes to console.log all the items combinations.
+  // uses .toString() to output the items as strings.
   pub.list = function() {
     
     pub.build()
@@ -336,9 +139,9 @@ var combination_gen = function() {
 
 
 
-  // recreates the set, and set it to initial position.
-  // the initial position according to the
-  // iteration algorithm used in this class.
+  // creates or recreates the set, and set it to initial position.
+  // (the initial position according to the iteration algorithm 
+  // used in this class)
   pub.build = function() {
     
     if( pub.k>pub.n ) {
@@ -363,19 +166,11 @@ var combination_gen = function() {
 
 
 
-
-
-
-
-
-
-
-
   
   // changes the set elements to the next
   // possible combination according to
   // a simple algorithm, that allows
-  // to iterate through all the combinations
+  // to iterate through all the combinations.
   pub.next = function() {
     var i = who_moves()
     if( i !== false ) {
@@ -388,11 +183,11 @@ var combination_gen = function() {
 
 
 
-
-  // determine the element to be moved
+  // part of the iteration algorithm.
+  // Determines the element to be moved.
   // the element to move is the first
-  // from right to left
-  // that has an empty slot at his right
+  // from right to left,
+  // that has an empty slot at his right.
   // example 1: 
   // set = [ o - - o - ]  o:true  -:false
   // the one to move is the set[3] element
@@ -400,7 +195,8 @@ var combination_gen = function() {
   // set = [ - o - o o ]  o:true  -:false
   // the one to move is the set[2] element
   // 
-  // returns false is there is no element to move
+  // returns false is there is no element to move,
+  // which should mean that it is the last iteration.
   var who_moves = function() {
     for(var i=pub.n-1; i>0; i--)
       if( pub.set[i-1] && !pub.set[i] ) return i-1
@@ -412,7 +208,9 @@ var combination_gen = function() {
 
 
 
-  // move element
+  // move an element one step to the right.
+  // then pulls all elements at the right.
+  // (part of the iteration algorithm)
   var move = function(i) {
     pub.set[i] = false
     pub.set[i+1] = true
@@ -461,8 +259,6 @@ var combination_gen = function() {
 
 
 
-
-
   // format the output, used by the -list()- method
   var format_list = function( list ) {
     var res = '[ '
@@ -496,33 +292,3 @@ var combination_gen = function() {
   
   return pub
 }()
-
-//combination_gen.n = 6
-//combination_gen.k = 4
-//combination_gen.draw_matrix()
-
-combination_gen.add( 'greengreengreen' )
-combination_gen.add( 'blue' )
-combination_gen.add( 'red' )
-combination_gen.add( 'orange' )
-combination_gen.add( 'purple' )
-
-combination_gen.k = 3
-
-
-
-combination_gen.build()
-
-console.log( combination_gen.set )
-console.log( combination_gen.get_combination() )
-
-combination_gen.next()
-
-console.log( combination_gen.set )
-console.log( combination_gen.get_combination() )
-
-combination_gen.build()
-
-combination_gen.list()
-
-combination_gen.draw_matrix()

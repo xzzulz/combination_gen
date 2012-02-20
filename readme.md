@@ -8,6 +8,9 @@
  Generate (n/k) combinations, iterate and work with them.
 
  
+ MIT License (MIT)
+ Copyright (c) 2011 daniel salvati
+
 
 #### tags
 
@@ -159,7 +162,7 @@
 
    Will return an array: 
 
-       [ 'blue', 'orange', 'purple' ]
+       [ 'blue', 'orange' ]
 
 
 
