@@ -115,6 +115,11 @@
 //   toString() will be called on each item.
 //   
 //
+//   Draw to console a matrix of the combinations ( to console.log() )
+//
+//       combination_gen.draw_matrix()
+//
+//
 //
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //
@@ -141,7 +146,11 @@
 //       combination_gen.build()
 //
 //   This will create the set, and set it to an initial value.
-//
+//   This method should be called after changing n,k or adding 
+//   items. 
+//   Methods draw_matrix and list call it before strating to 
+//   iterate.
+//   
 //
 //
 //   Get the current combination as an array of items:
@@ -172,7 +181,8 @@
 //       combination_gen.next()
 //
 //   Will return true, if the iteration was successful,
-//   or false if the current iteration is the last.
+//   or false if the current iteration is the last. So it can
+//   be easily used in loops.
 //
 //
 //   Return to the first combination with:
@@ -398,6 +408,10 @@ var combination_gen = function() {
     return false
   }
 
+
+
+
+
   // move element
   var move = function(i) {
     pub.set[i] = false
@@ -443,6 +457,8 @@ var combination_gen = function() {
     }    
     
   }
+
+
 
 
 
