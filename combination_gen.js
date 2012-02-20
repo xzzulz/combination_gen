@@ -292,3 +292,6 @@ var combination_gen = function() {
   
   return pub
 }()
+
+
+module.exports = combination_gen
