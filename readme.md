@@ -1,13 +1,13 @@
- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # combination_gen.js
  
- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
  Javascript module to work with combinations.
  Generate (n/k) combinations, iterate and work with them.
 
- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
 
 ## tags
 
@@ -15,7 +15,7 @@
  k-combinations,
 
 
- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
 
  this module can generate all the possible
  combinations of a subset of number k distinct
@@ -28,21 +28,21 @@
  The total number of possible combination for n and k, 
  is given by:
 
-     / n \  =      n!            for k <= n
-     \ k /      k! (n-k)! 
+     / n \    =       n!            for k <= n
+     \ k /         k! (n-k)! 
 
 
- http:en.wikipedia.org/wiki/Combination
+  http://en.wikipedia.org/wiki/Combination
 
 
  
 
- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
 
 
 
 
- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
 ## Usage
@@ -51,10 +51,10 @@
  There are two ways to use this component:
 
 
-### :: The basic way
+### :: Basic
 
    To explore combinations (n/k)
-   Specify values for n and k, and explore the combinations
+   Specify values for n and k, and explore the combinations.
 
 
 ### :: With items
@@ -65,10 +65,10 @@
 
 
 
- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
 
 
-### :: 1 The basic way
+### :: 1 Basic
 
 
    Specify values for n and k
@@ -86,7 +86,7 @@
 
 
 
- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
 
 
 ### :: 2 With items
@@ -121,7 +121,7 @@
 
 
 
- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
 
 
 ### :: Work with the combinations
@@ -193,8 +193,35 @@
    Ready for iteration.
 
 
- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Reference
 
+#### This section content is pending
 
+### combination_gen
 
+### combination_gen properties
+
+    combination_gen.n
+
+    combination_gen.k
+
+    combination_gen.set
+        
+### combination_gen methods
+
+    combination_gen.add()
+    
+    combination_gen.build()
+    
+    combination_gen.next()   
+    
+    combination_gen.get_combination()   
+    
+    combination_gen.list()  
+    
+    combination_gen.draw_matrix()   
+    
+    
+    
+    
