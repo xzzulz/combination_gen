@@ -66,11 +66,7 @@
  Then In javascript, import with require:
 
     var combination_gen = require('combination_gen')
-
-
-combiner.build()
-
-console.log( combiner.draw_matrix() )    
+   
  
 #### plain javascript
     
