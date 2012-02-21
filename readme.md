@@ -6,6 +6,10 @@
 
  Javascript module to work with combinations.
  Generate (n/k) combinations, iterate and work with them.
+ 
+ Available as a js file, and as a node.js npm package:
+ * node.js npm package -> master branch
+ * plain .js component -> no_npm branch
 
  
  MIT License (MIT)
@@ -50,6 +54,17 @@
 
 ## Usage
 
+### Installation
+
+ To install with npm, as a node.js package:  
+ With command line, navigate to the folder where will be ibnstalled and enter:
+    npm install combination_gen
+    
+ To install as a plain javascript file:  
+ In github select the no_npm branch, and download with the link there.
+ Include the combination_gen.js file in your project.
+
+### Two ways to use
 
  There are two ways to use this component:
 
