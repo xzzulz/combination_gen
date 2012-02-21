@@ -1,0 +1,18 @@
+{
+  "author": "nzonbi <nzonbi@ozkeebo.com> (http://www.ozkeebo.com)",
+  "name": "combination_gen",
+  "description": "Combinations generator (combinatorics) Generates all possible combinations of (n/k) k elements from n elements with no repetitions. Iterate or display combinations.",
+  "version": "1.0.2",
+  "homepage": "https://github.com/nzonbi/combination_gen",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nzonbi/combination_gen.git"
+  },
+  "main": "combination_gen",
+  "engines": {
+    "node": "~0.6.10"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
