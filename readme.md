@@ -56,9 +56,23 @@
 
 ### Installation
 
+#### node.js package
+
  To install with npm, as a node.js package:  
  With command line, navigate to the folder where will be ibnstalled and enter:
+    
     npm install combination_gen
+    
+ Then In javascript, import with require:
+
+    var combination_gen = require('combination_gen')
+
+
+combiner.build()
+
+console.log( combiner.draw_matrix() )    
+ 
+#### plain javascript
     
  To install as a plain javascript file:  
  In github select the no_npm branch, and download with the link there.
