@@ -8,12 +8,12 @@
  Generate (n/k) combinations, iterate and work with them.
  
  Available as a js file, and as a node.js npm package:
- * node.js npm package -> master branch
- * plain .js component -> no_npm branch
+
+* node.js npm package -> master branch
+* plain .js component -> no_npm branch
 
  
- MIT License (MIT)
- Copyright (c) 2011 daniel salvati
+ MIT License (MIT) 
 
 
 #### tags
@@ -110,7 +110,30 @@
 
    This method will iterate for all the combinations, and output
    them, well formated, to console.log
+   Will output this:
+   
+      ::  combinations matrix  :: 
+      In this matrix each row is a possible combination.
+      Each column is an element of the set of n elements.
+      An o means the element is included.
+      An - means the element is not included.
 
+      [ 0 1 2 3 4 5 ]
+      [ o o o o - - ]  1
+      [ o o o - o - ]  2
+      [ o o o - - o ]  3
+      [ o o - o o - ]  4
+      [ o o - o - o ]  5
+      [ o o - - o o ]  6
+      [ o - o o o - ]  7
+      [ o - o o - o ]  8
+      [ o - o - o o ]  9
+      [ o - - o o o ]  10
+      [ - o o o o - ]  11
+      [ - o o o - o ]  12
+      [ - o o - o o ]  13
+      [ - o - o o o ]  14
+      [ - - o o o o ]  15   
 
 
 
@@ -131,12 +154,23 @@
 
    Specify a value for k
 
-       combination_gen.k = 4
+       combination_gen.k = 2
 
 
    List all the combinations ( to console.log() )
 
        combination_gen.list()
+
+   Will output this
+   
+       ::  combinations list  :: 
+       List all possible combinations
+       For the values of k and n.
+
+       [ blue      orange    ]  1
+       [ blue      purple    ]  2
+       [ orange    purple    ]  3   
+
 
    This method will iterate for all the combinations, and output
    them, well formated, to console.log.
