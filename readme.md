@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/nzonbi/combination_gen.png)](http://travis-ci.org/nzonbi/combination_gen)
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # combination_gen.js
