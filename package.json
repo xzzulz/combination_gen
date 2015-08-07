@@ -5,7 +5,7 @@
   "keywords": "combinations, combinatorics, sets, k-combinations",
   "version": "1.0.2",
   "homepage": "https://github.com/nzonbi/combination_gen",
-  "license": "MIT"
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/nzonbi/combination_gen.git"
