@@ -59,7 +59,7 @@
 #### node.js package
 
  To install with npm, as a node.js package:  
- With command line, navigate to the folder where will be ibnstalled and enter:
+ With command line, navigate to the folder where will be installed and enter:
     
     npm install combination_gen
     
